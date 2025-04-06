@@ -9,7 +9,6 @@ import {
   Input,
 } from "@mui/material";
 import axios from "axios";
-
 function FingerprintVerification({ onNext }) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);

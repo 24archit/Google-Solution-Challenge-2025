@@ -13,7 +13,7 @@ import {
 import PersonIcon from '@mui/icons-material/Person';
 import FingerprintIcon from '@mui/icons-material/Fingerprint';
 
-function UserInfo({ userInfo, onNext }) {
+export default function UserInfo({ userInfo, onNext }) {
   return (
     <Box sx={{ mt: 2 }}>
       <Paper 
@@ -170,5 +170,3 @@ function UserInfo({ userInfo, onNext }) {
     </Box>
   );
 }
-
-export default UserInfo;

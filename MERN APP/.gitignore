@@ -77,4 +77,4 @@ docker-compose.override.yml
 
 # Firebase Admin SDK private key (if applicable)
 firebaseAdmin.js
-serviceAccountKey.json
+

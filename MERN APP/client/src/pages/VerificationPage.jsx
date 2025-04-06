@@ -14,10 +14,10 @@ import {
   Alert,
   Divider,
 } from "@mui/material";
-import UserInfo from "../components/Userinfo";
+import UserInfo from "../components/UserInfo";
 import FingerprintVerification from "../components/FingerprintVerification";
 import NearestPollingBooth from "../components/NearestPollingBooth";
-import QRCodeGenerator from "../components/QrCodeGenerator";
+import QRCodeGenerator from "../components/QRCodeGenerator";
 import AdditionalDetailsForm from "../components/AdditionalDetailsForm";
 
 function VerificationPage() {

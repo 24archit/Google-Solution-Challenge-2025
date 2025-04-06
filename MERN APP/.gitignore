@@ -1,0 +1,80 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+dist/
+build/
+.cache/
+out/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Temporary files
+*.swp
+*.swo
+*.swn
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.bak
+*.tmp
+*.pid
+*.seed
+*.seed.js
+
+# Prisma
+prisma/migrations/
+prisma/dev.db
+prisma/dev.db-journal
+
+# PostgreSQL
+*.pgsql
+*.pgdump
+postgres-data/
+
+# Elasticsearch
+elasticsearch-data/
+
+# TypeScript
+*.tsbuildinfo
+
+# Debugging
+*.log
+*.stackdump
+
+# Coverage reports
+coverage/
+*.lcov
+
+# Docker
+docker-compose.override.yml
+.dockerignore
+
+# Git hooks
+.husky/
+
+# Next.js (if using)
+.next/
+
+# Vite (if using)
+.vite/
+
+# Firebase Admin SDK private key (if applicable)
+firebaseAdmin.js
+serviceAccountKey.json

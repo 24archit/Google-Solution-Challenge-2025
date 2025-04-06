@@ -114,7 +114,7 @@ const Login = () => {
         console.log(userCredential)
 
         // Send token to backend to create JWT
-        const response = await axios.post("http://localhost:7000/api/auth/login", {
+        const response = await axios.post("https://google-solution-challenge-2025-stwx.vercel.app/api/auth/login", {
           idToken,
         });
 

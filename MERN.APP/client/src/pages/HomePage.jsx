@@ -143,15 +143,15 @@ function HomePage() {
           {[
             {
               title: "Secure Authentication",
-              description: "Multi-factor authentication system with Aadhaar integration ensures legitimate voters."
+              description: "Multi-factor authentication system with Aadhaar Linked Phone number ensures legitimate voters."
             },
             {
               title: "Voting Transparency",
-              description: "Blockchain technology guarantees tamper-proof recording of all votes."
+              description: "Blockchain technology guarantees tamper-proof recording of all Voter Verifications."
             },
             {
               title: "Accessibility",
-              description: "Vote from anywhere with internet access, including special provisions for persons with disabilities."
+              description: "Our platform is accessible from anywhere, at any time — and if you encounter any issues, dedicated manual assistance is always available."
             }
           ].map((feature, index) => (
             <Grid item xs={12} md={4} key={index}>

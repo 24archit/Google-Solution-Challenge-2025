@@ -1,6 +1,6 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Button, Box, Container } from '@mui/material';
-import governmentLogo from '../assets/Emblem.png';
+import logo from '../assets/logo.png'; // Assuming you have a logo image
 
 function Navbar() {
   return (
@@ -13,9 +13,9 @@ function Navbar() {
           {/* National emblem or logo could go here */}
           <Box sx={{ mr: 2 }}>
             <img 
-              src={governmentLogo} 
-              alt="Government Emblem" 
-              width="43" 
+              src={logo} 
+              alt="Logo" 
+              width="150" 
               height="50"
             />
           </Box>
@@ -30,31 +30,8 @@ function Navbar() {
               fontSize: { xs: '1rem', sm: '1.25rem' }
             }}
           >
-            Voter Guard | Election Commission of India
+            Election Commission of India
           </Typography>
-          
-          <Button 
-            color="inherit" 
-            sx={{ 
-              mx: 1, 
-              fontWeight: 500,
-              textTransform: 'none'
-            }}
-          >
-            Register
-          </Button>
-          
-          <Button 
-            color="inherit"
-            variant="outlined" 
-            sx={{ 
-              borderColor: 'rgba(255,255,255,0.5)',
-              fontWeight: 500,
-              textTransform: 'none'
-            }}
-          >
-            Login
-          </Button>̥
         </Toolbar>
       </Container>
     </AppBar>

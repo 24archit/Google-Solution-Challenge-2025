@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef} from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   Box,
   Container,
@@ -41,12 +41,13 @@ const Login = () => {
       });
     }
   }, [recaptchaRef]);
-  
+
   const handleSendOtp = async () => {
     try {
       setLoading(true);
       const appVerifier = window.recaptchaVerifier;
-      const confirmation = await signInWithPhoneNumber(auth, phone, appVerifier);
+      const formattedPhone = `+91${phone}`;
+      const confirmation = await signInWithPhoneNumber(auth, formattedPhone, appVerifier);
       setConfirmationResult(confirmation);
       setOtpSent(true);
     } catch (error) {
@@ -60,32 +61,32 @@ const Login = () => {
   // const handleVerifyOtp = async () => {
   //   try {
   //     setLoading(true);
-  
+
   //     if (!confirmationResult) {
   //       alert("OTP has not been sent or session expired.");
   //       return;
   //     }
-  
+
   //     // Trim any whitespace from OTP input
   //     const trimmedOtp = otp.trim();
   //     if (!trimmedOtp) {
   //       alert("Please enter the OTP.");
   //       return;
   //     }
-  
+
   //     console.log("Attempting verification with OTP:", trimmedOtp);
-  
+
   //     // Confirm the OTP using Firebase's confirmationResult
   //     const userCredential = await confirmationResult.confirm(trimmedOtp);
   //     const idToken = await userCredential.user.getIdToken();
-  
+
   //     console.log("Verified user:", userCredential.user);
-  
+
   //     // Send token to backend to create JWT
   //     const response = await axios.post("http://localhost:7000/api/auth/login", {
   //       idToken,
   //     });
-  
+
   //     if (response.data.jwt) {
   //       localStorage.setItem("token", response.data.jwt);
   //       navigate("/");
@@ -131,7 +132,18 @@ const Login = () => {
       setLoading(false);
     }
   };
-  
+
+  const handleEnterKey = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault(); // Prevent default form submission
+      if (!otpSent) {
+        handleSendOtp();
+      } else {
+        handleVerifyOtp();
+      }
+    }
+  };
+
 
   return (
     <Container maxWidth="sm" sx={{ my: 4 }}>
@@ -156,8 +168,9 @@ const Login = () => {
           sx={{ mb: 3, backgroundColor: "#f0f7ff", color: "#0b3d91" }}
         >
           Please enter your registered phone number to receive an OTP for authentication.
+          <br />
+          For demo, use <strong>1234567890</strong> as phone number and <strong>123456</strong> as OTP.
         </Alert>
-
         <Box component="form" sx={{ mt: 2 }}>
           <TextField
             label="Phone Number"
@@ -166,7 +179,8 @@ const Login = () => {
             margin="normal"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            placeholder="+1234567890"
+            placeholder="enter 10 digit phone number"
+            onKeyDown={handleEnterKey}
             disabled={otpSent}
             InputProps={{ sx: { borderRadius: 1 } }}
           />
@@ -199,6 +213,7 @@ const Login = () => {
                 margin="normal"
                 value={otp}
                 onChange={(e) => setOtp(e.target.value)}
+                onKeyDown={handleEnterKey}
                 InputProps={{ sx: { borderRadius: 1 } }}
               />
 

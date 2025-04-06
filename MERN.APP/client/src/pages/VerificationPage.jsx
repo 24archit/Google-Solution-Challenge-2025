@@ -28,6 +28,8 @@ function VerificationPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [userFound, setUserFound] = useState(null);
   const [step, setStep] = useState(1);
+  const [verificationFailed, setVerificationFailed] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const userFoundSteps = [
     "Verification",
@@ -39,7 +41,6 @@ function VerificationPage() {
     "Verification",
     "Additional Information",
     "Polling Station",
-    "Digital Pass",
   ];
   const initialSteps = ["Verification", "...", "...", "..."];
 
@@ -106,12 +107,15 @@ function VerificationPage() {
           setStep(2);
         } else {
           setUserFound(false);
+          setVerificationFailed(true);
+          setErrorMessage("EPIC number not found. Would you like to retry or continue with manual verification?");
           setStep(2);
         }
       }
     } catch (error) {
       console.error("Verification failed:", error);
-      alert("Verification failed. Please try again.");
+      setVerificationFailed(true);
+      setErrorMessage("Something went wrong during verification. You can retry or continue manually.");
     } finally {
       setIsLoading(false);
     }
@@ -154,8 +158,6 @@ function VerificationPage() {
           );
         case 3:
           return <NearestPollingBooth onNext={handlePhysicalVerification} />;
-        case 4:
-          return <QRCodeGenerator epicNumber={epicNumber} />;
         default:
           return null;
       }
@@ -211,8 +213,8 @@ function VerificationPage() {
             >
               As this is a prototype, please upload a photo from the dataset
               available in the repository.
-     
-             
+
+
               <br />
               📂{" "}
               <a
@@ -304,6 +306,48 @@ function VerificationPage() {
                     helperText="See your Voter Id for the EPIC number"
                     InputProps={{ sx: { borderRadius: 1 } }}
                   />
+                </Grid>
+              )}
+              {verificationFailed && (
+                <Grid item xs={12}>
+                  <Alert severity="error" sx={{ mb: 2 }}>
+                    {errorMessage}
+                  </Alert>
+                  <Grid container spacing={2}>
+                    <Grid item xs={6}>
+                      <Button
+                        fullWidth
+                        variant="outlined"
+                        onClick={() => {
+                          setEpicNumber("");
+                          setVerificationFailed(false);
+                        }}
+                        sx={{
+                          borderColor: "#0b3d91",
+                          color: "#0b3d91",
+                          "&:hover": { borderColor: "#072a64", backgroundColor: "#f0f7ff" },
+                        }}
+                      >
+                        Retry Verification
+                      </Button>
+                    </Grid>
+                    <Grid item xs={6}>
+                      <Button
+                        fullWidth
+                        variant="contained"
+                        onClick={() => {
+                          setUserFound(false);
+                          setStep(2);
+                        }}
+                        sx={{
+                          backgroundColor: "#0b3d91",
+                          "&:hover": { backgroundColor: "#072a64" },
+                        }}
+                      >
+                        Continue Manually
+                      </Button>
+                    </Grid>
+                  </Grid>
                 </Grid>
               )}
 

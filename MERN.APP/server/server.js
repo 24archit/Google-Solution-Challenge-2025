@@ -5,7 +5,10 @@ const jwt = require("jsonwebtoken");
 const admin = require("./firebaseAdmin"); // Import Firebase Admin from firebaseAdmin.js
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: 'https://voter-guard.vercel.app',
+  credentials: true,
+}));
 app.use(express.json());
 
 const SECRET_KEY = process.env.JWT_SECRET_KEY || "your_secret_key"; // Store securely

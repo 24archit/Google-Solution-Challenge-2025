@@ -118,7 +118,6 @@ const Login = () => {
         const response = await axios.post("https://google-solution-challenge-2025-stwx.vercel.app/api/auth/login", {
           idToken,
         });
-
         if (response.data.jwt) {
           console.log(response.data.jwt)
           localStorage.setItem("token", response.data.jwt); // Store JWT

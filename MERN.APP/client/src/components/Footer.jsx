@@ -23,7 +23,6 @@ function Footer() {
                 Election Commission of India
               </Typography>
             </Grid>
-            
             <Grid item xs={12} md={4}>
               <Typography variant="h6" sx={{ fontWeight: 500, mb: 2 }}>
                 Important Links

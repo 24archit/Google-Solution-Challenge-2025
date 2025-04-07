@@ -218,7 +218,7 @@ function VerificationPage() {
               <br />
               📂{" "}
               <a
-                href="https://github.com/your-username/your-repo-name/tree/main/dataset"
+                href="https://raw.githubusercontent.com/24archit/Google-Solution-Challenge-2025/refs/heads/main/AVVS-Flask-main/uploads/voter-id-card-500x500.webp"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ color: "#0b3d91", textDecoration: "underline" }}

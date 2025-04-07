@@ -83,7 +83,7 @@ function FingerprintVerification({ onNext }) {
         <br />
         📂{" "}
         <a
-          href="https://github.com/your-username/your-repo-name/tree/main/dataset"
+          href="https://raw.githubusercontent.com/24archit/Google-Solution-Challenge-2025/refs/heads/main/AVVS-Flask-main/uploads/6__M_Left_ring_finger_Obl.BMP"
           target="_blank"
           rel="noopener noreferrer"
           style={{ color: "#0b3d91", textDecoration: "underline" }}
